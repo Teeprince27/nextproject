@@ -1,4 +1,3 @@
-
 import { db } from "~/server/db";
 export default async function Posts() {
   const posts = await db.query.posts.findMany();
