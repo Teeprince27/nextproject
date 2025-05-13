@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+
 
 import { url } from "inspector";
 import Link from "next/link";
