@@ -3,7 +3,7 @@
 - [ X ] Make it deploy  (versel)
 - [ X ] Scalfold basic UI with mock data 
 - [ X ] Tidy up build process
-- [ ] Set up the DB (Vercel Postgres)
+- [ X ] Set up the DB (Vercel Postgres)
 - [ ] Attach DB to the UI
 - [ ] Add Authentication
 - [ ] Add Image Upload 
