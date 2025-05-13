@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { url } from "inspector";
 import Link from "next/link";
 import Posts from "./post";
@@ -16,6 +18,8 @@ const mockImages = mockUrls.map((url, index) => ({
 })
 
 )
+
+
 
 export default async function HomePage() {
 
