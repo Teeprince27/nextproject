@@ -1,3 +1,4 @@
+"use client";
 
 import {
 	ClerkProvider,
@@ -6,7 +7,10 @@ import {
 	SignedIn,
 	SignedOut,
 	UserButton,
-  } from '@clerk/nextjs'
+  } from "@clerk/nextjs";
+import { UploadButton } from "~/utils/uploadthing";
+// import { UploadButton } from "../../utils/uploadthing";
+
 
 export function TopNav(){
 	return (
@@ -14,11 +18,23 @@ export function TopNav(){
 				<div>
 					Gallery
 				</div>
-				<div>
+				<div className= "flex flex-rol">
 					<SignedOut>
                         <SignInButton />
                     </SignedOut>
                     <SignedIn>
+						<UploadButton
+							endpoint="imageUploader"
+							onClientUploadComplete={(res) => {
+							// Do something with the response
+							console.log("Files: ", res);
+							alert("Upload Completed");
+							}}
+							onUploadError={(error: Error) => {
+							// Do something with the error.
+							alert(`ERROR! ${error.message}`);
+							}}
+						/>
                         <UserButton />
                     </SignedIn>
 				</div>
