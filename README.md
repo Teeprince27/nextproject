@@ -4,9 +4,10 @@
 - [ X ] Scalfold basic UI with mock data 
 - [ X ] Tidy up build process
 - [ X ] Set up the DB (Vercel Postgres)
-- [ ] Attach DB to the UI
-- [ ] Add Authentication
+- [ X ] Attach DB to the UI
+- [ X ] Add Authentication (w/ clerk)
 - [ ] Add Image Upload 
+- [ ] "taint" (server-only)
 - [ ] Error management (w/ Sentry)
 - [ ] Routing/Image Page  (Parllel route)
 - [ ] Delete Button (w/ Server Actions)
