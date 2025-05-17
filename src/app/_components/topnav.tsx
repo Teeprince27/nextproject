@@ -8,11 +8,14 @@ import {
 	SignedOut,
 	UserButton,
   } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+
 import { UploadButton } from "~/utils/uploadthing";
 // import { UploadButton } from "../../utils/uploadthing";
 
 
 export function TopNav(){
+	const router = useRouter
 	return (
 		<nav className="flex items-center justify-between w-full p-4 text-xl font-semibold">
 				<div>
@@ -25,15 +28,9 @@ export function TopNav(){
                     <SignedIn>
 						<UploadButton
 							endpoint="imageUploader"
-							onClientUploadComplete={(res) => {
-							// Do something with the response
-							console.log("Files: ", res);
-							alert("Upload Completed");
-							}}
-							onUploadError={(error: Error) => {
-							// Do something with the error.
-							alert(`ERROR! ${error.message}`);
-							}}
+							// onClientUploadComplete={() => {
+							// 	router.refresh()
+							// }}
 						/>
                         <UserButton />
                     </SignedIn>

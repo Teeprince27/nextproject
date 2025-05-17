@@ -16,3 +16,6 @@
 - [ ] Ratelimiting (upstash)
 
 
+- [] Why is refresh not working 
+- [] Why is NextSSRPlugin not working 
+
