@@ -4,7 +4,7 @@ import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { url } from "inspector";import Link from "next/link";
 
 import { db } from "~/server/db";
-import { getMyImages } from "~/server/queries";
+import { getMyImages } from "../server/queries"
 
 
 async function Images(){
