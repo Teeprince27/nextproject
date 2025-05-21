@@ -44,13 +44,14 @@ export default function RootLayout({
 				/>
 				<ClerkProvider>
 					<CSPostHogProvider>
-						<div className="h-screen grid grid-rows-[auto, 1fr]">
+						<div className="grid grid-rows-[auto,1fr]">
 							<TopNav />
 							<main className="overflow-y-scroll">
 								{children}
 							</main>
+							{modal}
 						</div>
-						{modal}
+						
 						<div id="modal-root" />
 						<Toaster />
 					</CSPostHogProvider>
