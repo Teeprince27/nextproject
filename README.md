@@ -9,13 +9,15 @@
 - [ X ] Add Image Upload 
 - [ X ] "taint" (server-only)
 - [ X ] Use Next Image Component 
-- [ ] Error management (w/ Sentry)
-- [ ] Routing/Image Page  (Parllel route)
+- [ X ] Error management (w/ Sentry)
+- [ X ] Routing/Image Page  (Parllel route)
+- [ ] Update upload button to be less cringe 
 - [ ] Delete Button (w/ Server Actions)
 - [ ] Analytics (Posthog)
 - [ ] Ratelimiting (upstash)
 
 
 - [] Why is refresh not working 
-- [] Why is NextSSRPlugin not working 
+- [] why is $ut.permittedFileInfo? showing error
+
 
