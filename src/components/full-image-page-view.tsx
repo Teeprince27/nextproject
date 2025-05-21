@@ -3,10 +3,13 @@ import { getImages } from "~/server/queries";
 
 
 
-export default async function  FullPageImageView(props: {id: number }) {
+export default async function  FullPageImageView(props: {id: string }) {
  
-  const image = await getImages(props.id)
-  const uploaderInfo = await clerkClient.users.getUser()
+   const idAsNumber = Number(props.id);
+  if (Number.isNaN(idAsNumber)) throw new Error("Invalid photo id");
+  const image = await getImages(idAsNumber)
+  const client = await clerkClient();
+  const uploaderInfo = await client.users.getUser(image.userId)
   return (
       <div className="flex  w-full h-full  bg-green-500 min-w-0 ">
            <div className="flex-shrink flex justify-center items-center " >
