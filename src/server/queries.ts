@@ -6,6 +6,7 @@ import { and, eq } from "drizzle-orm/sql";
 // import analyticsServerClient from "../app/_analytics/provider";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import analyticsServerClient from "./analytics";
 
 
 
@@ -52,13 +53,13 @@ export async function deleteImage(id: number) {
         .delete(images)
         .where(and(eq(images.id, id), eq(images.userId, user.userId)));
 
-      // analyticsServerClient.capture({
-      //   distinctId: (await user).userId,
-      //   event: "delete image",
-      //   properties: {
-      //     imageId: id,
-      //   },
-      // });
+      analyticsServerClient.capture({
+        distinctId: user.userId,
+        event: "delete image",
+        properties: {
+          imageId: id,
+        },
+      });
 
   revalidatePath("/");
   redirect("/");
