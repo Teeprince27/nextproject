@@ -5,6 +5,7 @@ import { images } from "./db/schema";
 import { and, eq } from "drizzle-orm/sql";
 // import analyticsServerClient from "../app/_analytics/provider";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 
 
@@ -43,21 +44,22 @@ export async function getImages(id: number) {
       return image;
 }
 
-// export async function deleteImage(id: number) {
-//   const user = auth();
-//   if (!(await user).userId) throw new Error("Unauthorized");
+export async function deleteImage(id: number) {
+      const user = await auth();
+      if (!(user).userId) throw new Error("Unauthorized");
 
-//   await db
-//     .delete(images)
-//     .where(and(eq(images.id, id), eq(images.userId, (await user).userId)));
+      await db
+        .delete(images)
+        .where(and(eq(images.id, id), eq(images.userId, user.userId)));
 
-//   analyticsServerClient.capture({
-//     distinctId: (await user).userId,
-//     event: "delete image",
-//     properties: {
-//       imageId: id,
-//     },
-//   });
+      // analyticsServerClient.capture({
+      //   distinctId: (await user).userId,
+      //   event: "delete image",
+      //   properties: {
+      //     imageId: id,
+      //   },
+      // });
 
-//   redirect("/");
-// }
+  revalidatePath("/");
+  redirect("/");
+}

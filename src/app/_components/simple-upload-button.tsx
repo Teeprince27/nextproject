@@ -10,7 +10,7 @@ type Input = Parameters<typeof useUploadThing>;
 
 const useUploadThingInputProps = (...args: Input) => {
   const $ut = useUploadThing(...args); 
-  $ut.startUpload
+  
 
   const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
@@ -25,7 +25,7 @@ const useUploadThingInputProps = (...args: Input) => {
   return {
     inputProps: {
       onChange,
-      // multiple: ( .config?.image?.maxFileCount ?? 1) > 1,
+      // multiple: ($ut.permittedFileInfo?.config?.image?.maxFileCount ?? 1) > 1,
       accept: "image/*",
     },
     isUploading: $ut.isUploading,
@@ -81,7 +81,7 @@ export function SimpleUploadButton() {
     onUploadBegin() {
       posthog.capture("upload_begin");
       toast(
-        <div className="flex items-center gap-2 text-white">
+        <div className="flex items-center gap-2 text-black">
           <LoadingSpinnerSVG /> <span className="text-lg">Uploading...</span>
         </div>,
         {
